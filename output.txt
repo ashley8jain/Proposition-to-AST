@@ -1,0 +1,28 @@
+TOP
+TOP
+BOTTOM
+BOTTOM
+AND(TOP,OR(BOTTOM,BOTTOM))
+AND(TOP,OR(BOTTOM,BOTTOM))
+OR(AND(TOP,BOTTOM),BOTTOM)
+OR(AND(TOP,BOTTOM),BOTTOM)
+OR(TOP,AND(BOTTOM,BOTTOM))
+OR(TOP,AND(BOTTOM,BOTTOM))
+OR(OR(TOP,BOTTOM),TOP)
+OR(OR(TOP,BOTTOM),TOP)
+IFF(a ,IFF(b ,c))
+IFF(a ,IFF(b ,c))
+AND(OR(do ,NOT(do)),NOT(there is try))
+AND(OR(do ,NOT(do)),NOT(there is try))
+IFTHEN(a ,AND(b ,c))
+IFTHEN(a ,AND(b ,c))
+IFF(a ,IFF(b ,c))
+IFF(a ,IFF(b ,c))
+IFTHEN(a ,IFF(b ,c))
+IFTHEN(a ,IFF(b ,c))
+IFTHEN(a ,IFTHEN(b ,IFTHEN(c ,De ds)))
+IFTHEN(a ,IFTHEN(b ,IFTHEN(c ,De ds)))
+IFTHEN(IFF(a ,b),c)
+IFTHEN(IFF(a ,b),c)
+IFTHEN(Aa cd c ,IFTHENELSE(b cds ,IFTHENELSE(c csa ,d ,e ),f))
+IFTHEN(Aa cd c ,IFTHENELSE(b cds ,IFTHENELSE(c csa ,d ,e ),f))

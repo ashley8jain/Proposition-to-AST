@@ -1,0 +1,37 @@
+fun lookup "bogus" = 10000
+  | lookup s = 0
+
+%%
+
+%eop EOF SEMI
+
+
+%pos int
+
+
+%term AND | FALSE | TRUE | SEMI | EOF | OR | NOT | LPAREN | RPAREN | IF | THEN | ELSE | IFF | ATOM of string
+%nonterm EXP of string | START of string option | TERM of string | TERM2 of string | TERM3 of string
+
+%name Prop
+
+%keyword SEMI
+
+%noshift EOF
+%verbose
+%%
+
+  START : EXP (SOME EXP)
+        | (NONE)
+  TERM : ATOM (ATOM)
+        | TRUE ("TOP")
+        | FALSE ("BOTTOM")
+        | LPAREN EXP RPAREN (EXP)
+        | NOT EXP ( "NOT(" ^ EXP ^ ")" ) 
+  TERM2 : TERM (TERM)
+        | TERM2 AND TERM  ( "AND(" ^ TERM2 ^ "," ^ TERM ^ ")" )
+  TERM3 : TERM2 (TERM2)
+        | TERM3 OR TERM2  ( "OR(" ^ TERM3 ^ "," ^ TERM2 ^ ")" )
+  EXP :TERM3   (TERM3)
+      | IF TERM3 THEN EXP ( "IFTHEN(" ^ TERM3 ^ "," ^ EXP ^ ")" )
+      | TERM3 IFF EXP ( "IFF(" ^ TERM3 ^ "," ^ EXP ^ ")" )
+      | IF TERM3 THEN EXP ELSE TERM3 ( "IFTHENELSE(" ^ TERM31 ^ "," ^ EXP ^ "," ^ TERM32 ^ ")" )
